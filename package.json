@@ -1,0 +1,45 @@
+{
+  "name": "csgo-inventory-csv",
+  "description": "Download your csgo inventory to a csv and fetch latest prices for each item. ",
+  "license": "MIT",
+  "version": "0.1.7",
+  "type": "module",
+  "keywords": [
+    "csgo",
+    "counter strike",
+    "steam",
+    "steam inventory",
+    "csgo bot"
+  ],
+  "contributors": [
+    "Lokesh Sharma <me@imlokesh.com>"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imlokesh/csgo-inventory-csv"
+  },
+  "main": "build/index.js",
+  "bin": {
+    "strava-privacy": "build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "dependencies": {
+    "axios": "^1.3.6",
+    "csv-stringify": "^6.2.10",
+    "fast-xml-parser": "^4.2.2",
+    "inquirer": "^9.1.5",
+    "node-cache": "^5.1.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.15.12",
+    "typescript": "^5.0.4"
+  }
+}
