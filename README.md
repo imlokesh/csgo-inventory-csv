@@ -8,6 +8,8 @@ You'll need nodejs and npm installed to use this program.
 
 Install using:
 
-`npm install -g csgo-inventory-csv`
+```
+npm install -g csgo-inventory-csv
+```
 
 Then just run `csgo-inventory-csv` and the interactive prompts will guide you.

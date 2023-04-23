@@ -2,7 +2,7 @@
   "name": "csgo-inventory-csv",
   "description": "Download your csgo inventory to a csv and fetch latest prices for each item. ",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "keywords": [
     "csgo",
@@ -23,7 +23,7 @@
   },
   "main": "build/index.js",
   "bin": {
-    "strava-privacy": "build/index.js"
+    "csgo-inventory-csv": "build/index.js"
   },
   "files": [
     "build",
