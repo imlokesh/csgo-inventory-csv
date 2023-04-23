@@ -4,7 +4,7 @@ This program will help you quickly export your csgo inventory to a csv file. It 
 
 ## Usage
 
-You'll need nodejs and npm installed to use this program.
+You'll need [nodejs](https://nodejs.org/en/download) installed to use this program.
 
 Install using:
 
