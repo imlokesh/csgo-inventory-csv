@@ -10,7 +10,7 @@ import inquirer from "inquirer";
 import { XMLParser } from "fast-xml-parser";
 
 const log = winston.createLogger({
-  level: "debug",
+  level: "info",
   format: winston.format.combine(
     winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss.SSS" }),
     winston.format.printf((info) => `${info.timestamp} [${info.level}] - ${info.message}`)
