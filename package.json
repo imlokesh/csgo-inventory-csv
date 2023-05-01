@@ -2,7 +2,7 @@
   "name": "csgo-inventory-csv",
   "description": "Download your csgo inventory to a csv and fetch latest prices for each item. ",
   "license": "MIT",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "keywords": [
     "csgo",
