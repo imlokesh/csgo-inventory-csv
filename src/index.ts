@@ -8,9 +8,12 @@ import { Inventory, ParsedItem, PriceData } from "./types";
 import winston from "winston";
 import inquirer from "inquirer";
 import { XMLParser } from "fast-xml-parser";
+import { argv } from "process";
+
+const verbose = argv.slice(2).includes("--verbose");
 
 const log = winston.createLogger({
-  level: "info",
+  level: verbose ? "debug" : "info",
   format: winston.format.combine(
     winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss.SSS" }),
     winston.format.printf((info) => `${info.timestamp} [${info.level}] - ${info.message}`)
