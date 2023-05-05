@@ -10,7 +10,7 @@ import inquirer from "inquirer";
 import { XMLParser } from "fast-xml-parser";
 import { argv } from "process";
 
-const verbose = argv.slice(2).includes("--verbose");
+const verbose = argv.includes("--verbose");
 
 const log = winston.createLogger({
   level: verbose ? "debug" : "info",
@@ -20,6 +20,8 @@ const log = winston.createLogger({
   ),
   transports: [new winston.transports.Console()],
 });
+
+if (verbose) log.debug("Using verbose logging. ");
 
 let ids: string[] = Array();
 let selectedCurrency: string = "INR";
@@ -110,14 +112,20 @@ for (const id of ids) {
         });
 
         priceRes = res.data;
-
-        cache.set(itemId, priceRes);
       } catch (error) {
         console.error("Error getting price data", error);
       }
     }
 
-    let priceData: PriceData = JSON.parse(priceRes ?? "{}");
+    let priceData: PriceData | null = null;
+
+    try {
+      priceData = JSON.parse(priceRes ?? "{}");
+      cache.set(itemId, priceRes);
+    } catch (error) {
+      log.error(`Error parsing price data. Invalid json response. `);
+      log.debug(priceRes);
+    }
 
     parsedItems.push({
       Type: desc.type,
@@ -129,13 +137,13 @@ for (const id of ids) {
       Quality: desc.tags.find((t) => t.category == "Quality")?.localized_tag_name || "",
       Rarity: desc.tags.find((t) => t.category == "Rarity")?.localized_tag_name || "",
       Weapon: desc.tags.find((t) => t.category == "Weapon")?.localized_tag_name || "",
-      AveragePrice: priceData?.average_price,
-      MedianPrice: priceData?.median_price,
-      LowestPrice: priceData?.lowest_price,
-      HighestPrice: priceData?.highest_price,
-      Currency: priceData?.currency,
-      StandardDeviation: priceData?.standard_deviation,
-      Volume: priceData?.amount_sold,
+      AveragePrice: priceData?.average_price || "",
+      MedianPrice: priceData?.median_price || "",
+      LowestPrice: priceData?.lowest_price || "",
+      HighestPrice: priceData?.highest_price || "",
+      Currency: priceData?.currency || "",
+      StandardDeviation: priceData?.standard_deviation || "",
+      Volume: priceData?.amount_sold || "",
     });
   }
   let filename = `${id}_${steamId64}_${Math.round(new Date().getTime() / 1000)}.csv`;
