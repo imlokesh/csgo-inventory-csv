@@ -107,7 +107,7 @@ for (const id of ids) {
     if (desc.marketable && priceRes == undefined) {
       try {
         log.info(`Getting price info for ${desc.market_hash_name} from csgobackpack. `);
-        const res = await axios.get("http://csgobackpack.net/api/GetItemPrice/", {
+        const res = await axios.get("https://csgobackpack.net/api/GetItemPrice/", {
           params: { id: itemId, currency: selectedCurrency },
         });
 
