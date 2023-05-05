@@ -1,5 +1,8 @@
 # CSGO Inventory to CSV
 
+[![npm](https://img.shields.io/npm/v/csgo-inventory-csv?style=plastic)](https://www.npmjs.com/package/csgo-inventory-csv)
+[![npm](https://img.shields.io/npm/dm/csgo-inventory-csv?style=plastic)](https://www.npmjs.com/package/csgo-inventory-csv)
+
 This program will help you quickly export your csgo inventory to a csv file. It will automatically fetch latest steam market prices using csgobackpack api.
 
 ## Usage
