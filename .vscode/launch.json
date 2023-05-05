@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\src\\index.ts",
+      "console": "externalTerminal",
+      "outFiles": ["${workspaceFolder}/**/*.js"],
+      // "args": ["--verbose"],
+      "env": {
+        "https_proxy": "http://127.0.0.1:8888",
+        "http_proxy": "http://127.0.0.1:8888"
+      }
+    }
+  ]
+}
